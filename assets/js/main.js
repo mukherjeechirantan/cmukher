@@ -1,5 +1,5 @@
 // About Me content is the one by default shown
-$('#educationContent').hide();
+$('#talkContent').hide();
 $('#publicationsContent').hide();
 $('#experienceContent').hide();
 $('#conferencesContent').hide();
@@ -74,8 +74,8 @@ $(document).ready(function(){
 
 	});
 
-	// Handle 'Education' content
-	$('#education').click(function(e) {
+	// Handle 'Talks' content
+	$('#talk').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.target).hasClass('active')) {
@@ -87,7 +87,7 @@ $(document).ready(function(){
 			clearActiveDivs();
 
 			// Show current content
-			activateDiv('#educationContent');
+			activateDiv('#talkContent');
 		}
 	});
 
