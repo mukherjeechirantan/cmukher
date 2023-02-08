@@ -75,6 +75,23 @@ $(document).ready(function(){
 
 	});
 
+// Handle 'Publications' content
+$('#publications').click(function(e) {
+
+	// If the div has already the class active, no need to reload the divs...
+	if(!$(e.target).hasClass('active')) {
+		// Update navbar
+		clearActiveLinks();
+		activateLink(e);
+
+		// Hide other contents
+		clearActiveDivs();
+
+		// Show current content
+		activateDiv('#publicationsContent');
+	}
+});
+
 	// Handle 'Talks' content
 	$('#talk').click(function(e) {
 
@@ -92,39 +109,23 @@ $(document).ready(function(){
 		}
 	});
 
-	// Handle 'Publications' content
-	$('#publications').click(function(e) {
 
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
+	// // Handle 'Blog' content
+	// $('#tutorials').click(function(e) {
 
-			// Hide other contents
-			clearActiveDivs();
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.target).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
 
-			// Show current content
-			activateDiv('#publicationsContent');
-		}
-	});
+	// 		// Hide other contents
+	// 		clearActiveDivs();
 
-	// Handle 'Blog' content
-	$('#tutorials').click(function(e) {
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
-
-			// Hide other contents
-			clearActiveDivs();
-
-			// Show current content
-			activateDiv('#tutorialsContent');
-		}
-	});
+	// 		// Show current content
+	// 		activateDiv('#tutorialsContent');
+	// 	}
+	// });
 
 	// Handle 'Teaching' content
 	$('#teaching').click(function(e) {
@@ -162,55 +163,55 @@ $(document).ready(function(){
 
 
 	// Handle 'Conferences' content
-	$('#conferences').click(function(e) {
+	// $('#conferences').click(function(e) {
 
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.target).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
 
-			// Hide other contents
-			clearActiveDivs();
+	// 		// Hide other contents
+	// 		clearActiveDivs();
 
-			// Show current content
-			activateDiv('#conferencesContent');
-		}
-	});
+	// 		// Show current content
+	// 		activateDiv('#conferencesContent');
+	// 	}
+	// });
 
 	// Handle 'Experience' content
-	$('#experience').click(function(e) {
+	// $('#experience').click(function(e) {
 
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.target).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
 
-			// Hide other contents
-			clearActiveDivs();
+	// 		// Hide other contents
+	// 		clearActiveDivs();
 
-			// Show current content
-			activateDiv('#experienceContent');
-		}
-	});
+	// 		// Show current content
+	// 		activateDiv('#experienceContent');
+	// 	}
+	// });
 
 	// Handle 'Projects' content
-	$('#projects').click(function(e) {
+	// $('#projects').click(function(e) {
 
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.target).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
 
-			// Hide other contents
-			clearActiveDivs();
+	// 		// Hide other contents
+	// 		clearActiveDivs();
 
-			// Show current content
-			activateDiv('#projectsContent');
-		}
-	});
+	// 		// Show current content
+	// 		activateDiv('#projectsContent');
+	// 	}
+	// });
 
 	/*
 	// Handle 'Template' content
