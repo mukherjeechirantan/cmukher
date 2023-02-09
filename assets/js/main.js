@@ -15,7 +15,7 @@ $('#lan').hide();
 
 $(document).ready(function(){
 
-	$.getJSON("https://api.countapi.xyz/hit/publish.uwo.ca/~cmukher/", function(response) {
+	$.getJSON("https://api.countapi.xyz/hit/https://publish.uwo.ca/~cmukher/", function(response) {
 		$("#contadorVisitas").text(response.value);
 	});
 
@@ -361,7 +361,7 @@ function scrollToContent(divId) {
 }
 
 function resetViews() {
-	$.getJSON("https://api.countapi.xyz/set/publish.uwo.ca/~cmukher/", function(response) {
+	$.getJSON("https://api.countapi.xyz/set/https://publish.uwo.ca/~cmukher/", function(response) {
 		$("#contadorVisitas").text("0");
 	});
 }
