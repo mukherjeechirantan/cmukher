@@ -361,7 +361,7 @@ function scrollToContent(divId) {
 }
 
 function resetViews() {
-	$.getJSON("https://api.countapi.xyz/set/https://publish.uwo.ca/~cmukher//634c2142-b35d-430e-b51c-dad16880dd3a?value=0", function(response) {
+	$.getJSON("https://api.countapi.xyz/set/https://publish.uwo.ca/~cmukher/634c2142-b35d-430e-b51c-dad16880dd3a?value=0", function(response) {
 		$("#contadorVisitas").text("0");
 	});
 }
