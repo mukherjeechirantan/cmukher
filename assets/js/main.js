@@ -15,8 +15,8 @@ $('#lan').hide();
 
 $(document).ready(function(){
 
-	$.getJSON("https://api.countapi.xyz/hit/https://publish.uwo.ca/~cmukher/contadorVisitas", function(response) {
-		$("#contadorVisitas").text(response.value);
+	$.getJSON("https://api.countapi.xyz/hit/publish.uwo.ca/~cmukher/visits", function(response) {
+		$("#visits").text(0);
 	});
 
 	// First time, check the theme
@@ -361,7 +361,7 @@ function scrollToContent(divId) {
 }
 
 function resetViews() {
-	$.getJSON("https://api.countapi.xyz/set/https://publish.uwo.ca/~cmukher/contadorVisitas", function(response) {
-		$("#contadorVisitas").text("0");
+	$.getJSON("https://api.countapi.xyz/set/publish.uwo.ca/~cmukher/visits", function(response) {
+		$("#visits").text("0");
 	});
 }
