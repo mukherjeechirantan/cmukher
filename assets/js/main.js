@@ -15,7 +15,7 @@ $('#lan').hide();
 
 $(document).ready(function(){
 
-	$.getJSON("https://api.countapi.xyz/hit/publish.uwo.ca/~cmukher/634c2142-b35d-430e-b51c-dad16880dd3a", function(response) {
+	$.getJSON("https://api.countapi.xyz/hit/publish.uwo.ca/~cmukher/", function(response) {
 		$("#contadorVisitas").text(response.value);
 	});
 
@@ -361,7 +361,7 @@ function scrollToContent(divId) {
 }
 
 function resetViews() {
-	$.getJSON("https://api.countapi.xyz/set/publish.uwo.ca/~cmukher/634c2142-b35d-430e-b51c-dad16880dd3a", function(response) {
+	$.getJSON("https://api.countapi.xyz/set/publish.uwo.ca/~cmukher/", function(response) {
 		$("#contadorVisitas").text("0");
 	});
 }
