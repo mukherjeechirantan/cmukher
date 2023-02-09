@@ -361,7 +361,7 @@ function scrollToContent(divId) {
 }
 
 function resetViews() {
-	$.getJSON("https://api.countapi.xyz/set/https://publish.uwo.ca/~cmukher/", function(response) {
+	$.getJSON("https://api.countapi.xyz/set/https://publish.uwo.ca/~cmukher/visits", function(response) {
 		$("#contadorVisitas").text("0");
 	});
 }
