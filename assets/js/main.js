@@ -16,7 +16,7 @@ $('#lan').hide();
 $(document).ready(function(){
 
 	$.getJSON("https://api.countapi.xyz/hit/publish.uwo.ca/~cmukher/visits", function(response) {
-		$("#visits").text(0);
+		$("#visits").text("0");
 	});
 
 	// First time, check the theme
@@ -362,6 +362,6 @@ function scrollToContent(divId) {
 
 function resetViews() {
 	$.getJSON("https://api.countapi.xyz/set/publish.uwo.ca/~cmukher/visits", function(response) {
-		$("#visits").text(0);
+		$("#visits").text("0");
 	});
 }
