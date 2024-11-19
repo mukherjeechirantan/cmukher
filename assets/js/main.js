@@ -1,61 +1,19 @@
-// About Me content is the one by default shown
-$('#talkContent').hide();
-$('#publicationsContent').hide();
-$('#experienceContent').hide();
-$('#conferencesContent').hide();
-$('#projectsContent').hide();
-$('#tutorialsContent').hide();
-$('#teachingContent').hide();
-$('#activitiesContent').hide();
-/* Template
-$('#nameContent').hide();
-*/
-$('#theme').hide();
-$('#lan').hide();
-
 $(document).ready(function(){
+	// By default, all the divs are hidden, if you were to add a new div, you should hide it here.
+	// If you want to show a div, you should clic on the corresponding link on the navbar.
+	$('#educationContent').hide();
+	$('#publicationsContent').hide();
+	$('#experienceContent').hide();
+	$('#conferencesContent').hide();
+	$('#projectsContent').hide();
+	$('#blogContent').hide();
+	$('#academicContent').hide();
+	$('#particularContent').hide();
+	// $('#photosContent').hide();
 
-	$.getJSON("https://api.countapi.xyz/hit/publish.uwo.ca/~cmukher/visits", function(response) {
-		$("#visits").text("0");
-	});
-
-	// First time, check the theme
-	if(localStorage.getItem("theme") === null){
-		localStorage.theme = "light";
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches)
-			localStorage.theme = "dark";
-	}
-	
-	// First time, check the locale
-	let userLang = navigator.language || navigator.userLanguage;
-	if(localStorage.getItem("lan") === null){
-		localStorage.lan = "en";
-		if (userLang.split('-')[0] == "es")
-			localStorage.lan = "es";
-	}
-
-	// Maybe first time or not, so load the localStorage value
-	$('<link>').appendTo('head').attr({
-		type: 'text/css', 
-		rel: 'stylesheet',
-		href: 'assets/css/light.css'
-	});
-	if (localStorage.theme == "dark") {
-		// Handle menu
-		$("link[href='assets/css/light.css']").remove();
-		$('<link>').appendTo('head').attr({
-			type: 'text/css', 
-			rel: 'stylesheet',
-			href: 'assets/css/dark.css'
-		});
-		$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
-	}
-	// Done because light is the one by default
-	if(localStorage.lan == "es") {
-		$('#lan img').attr("src","/assets/img/es_flag.webp");
-		$('#lan').addClass("es");
-	}
-	updateLanguage();
+	// Options menu is hidden by default
+	$('#theme').hide();
+	$('#lan').hide();
 
 	// Handle 'About Me' content
 	$('#aboutme').click(function(e) {
@@ -75,25 +33,8 @@ $(document).ready(function(){
 
 	});
 
-// Handle 'Publications' content
-$('#publications').click(function(e) {
-
-	// If the div has already the class active, no need to reload the divs...
-	if(!$(e.target).hasClass('active')) {
-		// Update navbar
-		clearActiveLinks();
-		activateLink(e);
-
-		// Hide other contents
-		clearActiveDivs();
-
-		// Show current content
-		activateDiv('#publicationsContent');
-	}
-});
-
-	// Handle 'Talks' content
-	$('#talk').click(function(e) {
+	// Handle 'Education' content
+	$('#education').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.target).hasClass('active')) {
@@ -105,30 +46,12 @@ $('#publications').click(function(e) {
 			clearActiveDivs();
 
 			// Show current content
-			activateDiv('#talkContent');
+			activateDiv('#educationContent');
 		}
 	});
 
-
-	// // Handle 'Blog' content
-	// $('#tutorials').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#tutorialsContent');
-	// 	}
-	// });
-
-	// Handle 'Teaching' content
-	$('#teaching').click(function(e) {
+	// Handle 'Publications' content
+	$('#publications').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.target).hasClass('active')) {
@@ -140,12 +63,12 @@ $('#publications').click(function(e) {
 			clearActiveDivs();
 
 			// Show current content
-			activateDiv('#teachingContent');
+			activateDiv('#publicationsContent');
 		}
 	});
 
-	// Handle 'Activities' content
-	$('#activities').click(function(e) {
+	// Handle 'Blog' content
+	$('#blog').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.target).hasClass('active')) {
@@ -157,65 +80,46 @@ $('#publications').click(function(e) {
 			clearActiveDivs();
 
 			// Show current content
-			activateDiv('#activitiesContent');
+			activateDiv('#blogContent');
 		}
 	});
 
+	// Handle 'Academic' content
+	$('#academic').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#academicContent');
+		}
+	});
+
+	// Handle 'Particular' content
+	$('#particular').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#particularContent');
+		}
+	});
 
 	// Handle 'Conferences' content
-	// $('#conferences').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#conferencesContent');
-	// 	}
-	// });
-
-	// Handle 'Experience' content
-	// $('#experience').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#experienceContent');
-	// 	}
-	// });
-
-	// Handle 'Projects' content
-	// $('#projects').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#projectsContent');
-	// 	}
-	// });
-
-	/*
-	// Handle 'Template' content
-	$('#name').click(function(e) {
+	$('#conferences').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.target).hasClass('active')) {
@@ -227,18 +131,67 @@ $('#publications').click(function(e) {
 			clearActiveDivs();
 
 			// Show current content
-			activateDiv('#nameContent');
+			activateDiv('#conferencesContent');
 		}
 	});
-	*/
 
-	// Whenever you clic on a blog post, you should be redirected to that post' html
-	$('.clickable').click(function(e) {
-		window.open($(e.currentTarget)[0].childNodes[1].innerText, '_blank').focus();
+	// Handle 'Experience' content
+	$('#experience').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#experienceContent');
+		}
 	});
 
-	// Copy the citation to the clipboard
-	// THIS SHOULD BE THE SAME FOR ALL THE PAPERS
+	// Handle 'Projects' content
+	$('#projects').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#projectsContent');
+		}
+	});
+
+
+	// Handle 'Photos' content
+	// $('#photos').click(function(e) {
+
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.target).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
+
+	// 		// Hide other contents
+	// 		clearActiveDivs();
+
+	// 		// Show current content
+	// 		activateDiv('#photosContent');
+	// 	}
+	// });
+
+	// **************************** //
+	// Handles the Publications events
+	// **************************** //
+
+	// Copies the citation to the clipboard
 	$(document).on("click", "#citation", function(){
 		var text = $(this).parent().parent().next()[0].innerHTML;
 
@@ -247,14 +200,47 @@ $('#publications').click(function(e) {
 		toastr.success('Citation copied');
 	});
 
-	// Controls the URL; if it has '#blog'
-	// then trigger the 'Blog' clic
-	if (((window.location).href).substring(((window.location).href).lastIndexOf('#') + 1) == 'tutorials') {
-		$('#tutorials').click();
-		$('#tutorialsContent').focus();
+	// ******************** //
+	// Handles the Blog events
+	// ******************** //
+
+	// Opens the blog post in a new tab
+	$('.clickable').click(function(e) {
+		window.open($(e.currentTarget)[0].childNodes[1].innerText, '_blank').focus();
+	});
+
+
+	// *************************** //
+	// Handle the rest of the content
+	// Omit this part if you don't have more content
+	// *************************** //
+	
+	// If the user has not selected a theme, then select the default one according to the user's preferences
+	if(localStorage.getItem("theme") === null){
+		localStorage.theme = "light";
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+			localStorage.theme = "dark";
 	}
 
-	// Controls the options menu
+	// Always load the light theme
+	$('<link>').appendTo('head').attr({
+		type: 'text/css', 
+		rel: 'stylesheet',
+		href: 'assets/css/light.css'
+	});
+
+	// If the user has the dark theme, then replace the light theme with the dark one
+	if (localStorage.theme == "dark") {
+		$("link[href='assets/css/light.css']").remove();
+		$('<link>').appendTo('head').attr({
+			type: 'text/css', 
+			rel: 'stylesheet',
+			href: 'assets/css/dark.css'
+		});
+		$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
+	}
+
+	// Controls the option menu toggler to show/hide the language and theme selectors
 	$('#options-toggler').click(function(e) {
 		if(!$(e.currentTarget).hasClass('active')) {
 			$(e.currentTarget).addClass('active');
@@ -268,10 +254,9 @@ $('#publications').click(function(e) {
 		}
 	})
 
-	// Animates the theme button + functionality
+	// Alternates between light and dark themes
 	$('#theme').click(function(e) {
 		if(localStorage.theme != "dark"){
-
 			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
 
 			localStorage.theme = "dark"
@@ -284,7 +269,6 @@ $('#publications').click(function(e) {
 			});
 		}
 		else {
-
 			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb'></i>");
 
 			localStorage.theme = "light"
@@ -298,41 +282,25 @@ $('#publications').click(function(e) {
 		}
 	})
 
-	// Animates the lan button + functionality
-	$('#lan').click(function(e) {
-		if(!$(e.currentTarget).hasClass('es')){
-			$(e.currentTarget).addClass('es');
-
-			$('#lan img').attr("src","/assets/img/es_flag.webp");
-
-			localStorage.lan = "es"
-		}
-		else {
-			$(e.currentTarget).removeClass('es');
-
-			$('#lan img').attr("src","/assets/img/en_flag.webp");
-
-			localStorage.lan = "en"
-		}
-
-		updateLanguage();
-	})
-
+	
+	// Create the language manager
+	const langManager = new LanguageManager();
+	
+	// Alternates between the different available languages
+	$('#lan').click(function() {
+        const newLang = langManager.getNextLanguage();
+        langManager.setLanguage(newLang);
+    });
 });
 
-function updateLanguage() {
-	let lang = localStorage.lan;
-	$(".language *").each(function(){
-		$(this).html( $(this).data(lang) );
-	});
-}
-
+// Clears the active links
 function clearActiveLinks() {
 	$('#navbarList .nav-item .nav-link').each(function() {
 		$(this).removeClass('active');
 	});
 }
 
+// Clears the active divs
 function clearActiveDivs() {
 	$('.container .content .active').each(function() {
 		$(this).removeClass('active');
@@ -340,10 +308,18 @@ function clearActiveDivs() {
 	});
 }
 
+// Activates the link
 function activateLink(e) {
 	$(e.target).addClass('active');
+	
+	// Hide left panel
+	if(e.target.id == "particular")
+		$('#leftPanel').hide();
+	else
+		$('#leftPanel').show();
 }
 
+// Activates the div
 function activateDiv(divId) {
 	$(divId).addClass('active');
 	$(divId).show();
@@ -352,16 +328,11 @@ function activateDiv(divId) {
 	scrollToContent(divId);
 }
 
+// Scrolls to the content
 function scrollToContent(divId) {
 	if ($(window).width() < 751) {
 		$('html, body').animate({
 			scrollTop: $(divId).offset().top
 		}, 1);
 	}
-}
-
-function resetViews() {
-	$.getJSON("https://api.countapi.xyz/set/publish.uwo.ca/~cmukher/visits", function(response) {
-		$("#visits").text("0");
-	});
 }

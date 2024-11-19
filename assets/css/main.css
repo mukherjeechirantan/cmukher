@@ -1,6 +1,15 @@
 /* MOBILE's FIRST - Custom properties */
 /* This classes will be then modified for bigger screens */
 
+#mowatave {
+	color: #2bd284 !important;
+	text-decoration: underline;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
 a {
 	text-decoration-thickness: 1px;
 }
@@ -44,13 +53,22 @@ li > .active {
 	font-family: 'Lucida Console', monospace;
 }
 
-/* CHIRANTAN MUKHERJEE CONTACT INFO - Related*/
+/* NICOLAS MESEGUER CONTACT INFO - Related*/
 .profilepicture {
-	max-height: 200px;
+	max-height: 300px;
 	min-width: 150px;
 	min-height: 150px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.fseneca {
+	max-width: 50%; 
+	height: auto;
+}
+
+.fseneca:hover {
+	transform: scale(1.05,1.05);
 }
 
 /* PUBLICATIONS - Related */
@@ -78,6 +96,33 @@ li > .active {
 
 .pub-force-margin-left {
 	margin-left: 10px !important;
+}
+
+/* ACADEMIC - Related */
+.academic-year-h2, .student-h2 {
+	font-size: 3.2em;
+	font-weight: 100;
+}
+
+.academic-block, .student-block {
+	padding-left: 15px;
+}
+
+.academic-rol {
+	font-weight: 400;
+}
+
+.academic-year {
+	font-weight: 100;
+}
+
+.student-mark {
+	font-weight: 400;
+	font-size: 1.1em;
+}
+
+.student-period {
+	font-weight: 100;
 }
 
 /* OPTION BUTTON */

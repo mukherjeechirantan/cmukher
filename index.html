@@ -30,22 +30,29 @@
 
 	</head>
 
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-LS62H88490"></script>
+	<!-- Google tag (gtag.js) & Google Analytics -->
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+        fetch('./assets/js/config.json')
+            .then(response => response.json())
+            .then(config => {
+                const scriptTag = document.createElement('script');
+                scriptTag.async = true;
+                scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsMeasurementId}`;
+                document.head.appendChild(scriptTag);
 
-		gtag('config', 'G-LS62H88490');
-	</script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-	<body>
+                gtag('config', config.googleAnalyticsMeasurementId);
+            })
+            .catch(error => console.error('Error loading the configuration:', error));
+    </script>
 
 		<!-- Bottom rounded button -->
 		<div class="options-button" id="options-toggler"><i class="fa-light fa-arrows-repeat"></i></div>
 		<div class="options-button" id="theme"><i class="fa-duotone fa-lightbulb"></i></div>
-		<!-- <div class="options-button" id="lan"><img class="lang-flag" src="/assets/img/en_flag.webp" alt="Flag indicating the english language is selected"></div> -->
+		<!--  <div class="options-button" id="lan"><img class="lang-flag" src="https://flagcdn.com/w20/us.png" alt="Flag indicating the english language is selected"></div>-->
 
 
 		<!-- Navbar  -->
@@ -107,10 +114,10 @@
 		</nav>
 
 		<div class="container" id="main-content">
-			<div class="row content">
+			<div class="row content" id="section-content">
 				
 				<!-- Chirantan Mukherjee profile and contact info -->
-				<div class="col-md-3 language">
+				<div id="leftPanel" class="col-md-3 language">
 					<div class="row mb-3">
 						<div class="col">
 							<img src="assets/img/dp.jpg" class="rounded me-auto d-block img-fluid profilepicture" alt="Chirantan Mukherjee's profile picture">
@@ -410,6 +417,42 @@
 								<p></p>
 								</div>							
 								<div class="pub-block">
+									<div class="lucida-console h5">Fourier-Motzkin Elimination using Saturation Matrix</div>
+									<div class="pub-congress">	Maplesoft, November 11, 2024.</div>
+									<div class="pub-link mt-1"><i class="fa-regular fa-person-chalkboard"></i> <a href="./assets/documents/Talk/FME_using_SatM.pdf" target="_blank" class="link-dark ">Talk</a></div>
+								</div>
+
+							<div class="pub-block">
+								<p></p>
+								</div>							
+								<div class="pub-block">
+									<div class="lucida-console h5">A New Algorithm for Computing Integer Hulls of 2D Polyhedral Sets</div>
+									<div class="pub-congress">	<a href="https://cs.uwaterloo.ca/~lrafiees/Lalo60.html" target="_blank" class="link-dark ">Lalo 60</a>, July 24, 2024.</div>
+									<div class="pub-link mt-1"><i class="fa-regular fa-person-chalkboard"></i> <a href="./assets/documents/Talk/A_New_Algorithm_for_Computing_Integer_Hulls_of_2D_Polyhedral_Sets.pdf" target="_blank" class="link-dark ">Talk</a></div>
+								</div>
+
+							<div class="pub-block">
+								<p></p>
+								</div>							
+								<div class="pub-block">
+									<div class="lucida-console h5">Using Saturation Matrix to Efficiently Remove Redundant Inequalities</div>
+									<div class="pub-congress">	Maplesoft, June 25, 2024.</div>
+									<div class="pub-link mt-1"><i class="fa-regular fa-person-chalkboard"></i> <a href="./assets/documents/Talk/Using_Saturation_Matrix_to_remove_redudandant_inequalities.pdf" target="_blank" class="link-dark ">Talk</a></div>
+								</div>
+
+							<div class="pub-block">
+								<p></p>
+								</div>							
+								<div class="pub-block">
+									<div class="lucida-console h5">The Polyhedral Model</div>
+									<div class="pub-congress">	Distributed and Parallel Systems , The University of Western Ontario, June 20, 2024.</div>
+									<div class="pub-link mt-1"><i class="fa-regular fa-person-chalkboard"></i> <a href="./assets/documents/Talk/The_Polyhedral_Model.pdf" target="_blank" class="link-dark ">Talk</a></div>
+								</div>
+
+							<div class="pub-block">
+								<p></p>
+								</div>							
+								<div class="pub-block">
 									<div class="lucida-console h5">The Delinearization of <em>C</em> programs</div>
 									<div class="pub-congress">	UWORCS 2024, The University of Western Ontario, April 9, 2024.</div>
 									<div class="pub-link mt-1"><i class="fa-regular fa-person-chalkboard"></i> <a href="./assets/documents/Talk/Delinearization.pdf" target="_blank" class="link-dark ">Talk</a></div>
@@ -530,6 +573,29 @@
 				<!-- Teaching -->
 				<div class="col-md-8 offset-md-1" id="teachingContent">
 					<div class="container">
+
+						<div class="clickable mt-4 language">
+							<div class="d-none">https://www.westerncalendar.uwo.ca/Courses.cfm?CourseAcadCalendarID=MAIN_009511_1&SelectedCalendar=Live&ArchiveID=#34191</div>
+							<div class="h5"> <i class="fa-regular fa-computer-classic" aria-hidden="true"></i> CS3342A: Organization of Programming Language</div>
+							<div class="blog-info mt-2">
+								<div class="d-inline">
+									Teaching Assistant
+								</div>
+
+								<div class="float-end d-inline">
+									<i class="fa-regular fa-calendar-range" aria-hidden="true"></i> Fall 2024
+								</div>
+							</div>
+
+							<div class="blog-short mt-2" 
+								data-en="In charge of holding weekly office hours, proctoring and grading a class of 341 students.">
+							</div>
+
+							<div class="blog-tags mt-1">
+								<span class="tag t-sky">Wednesday 3:30 pm - 5:30 pm at MC-16A</span>
+							</div>
+						</div>
+
 
 						<div class="clickable mt-4 language">
 							<div class="d-none">https://www.westerncalendar.uwo.ca/Courses.cfm?CourseAcadCalendarID=MAIN_024784_1&SelectedCalendar=Live&ArchiveID=#70875</div>
@@ -695,6 +761,15 @@
 
 							<h2 class="pub-year-h2">2024</h2>
 
+							<div class="pub-block">
+								<div class="pub-authors mt-1"><span class="pub-author"> I am doing a MITACS Accelerate internship at <a href="https://www.maplesoft.com/" target="_blank" class="link-dark ">Maplesoft Incorporation</a>. </span></div>
+								<div class="pub-congress"> May 6, 2024.</div>
+
+							</div>
+
+							<div class="pub-block">
+								<p></p>
+								</div>	
 							<div class="pub-block">
 								<div class="pub-authors mt-1"><span class="pub-author">Fast track to Ph.D. in <a href="https://www.csd.uwo.ca" target="_blank" class="link-dark ">Computer Science</a>. </span></div>
 								<div class="pub-congress"> May 1, 2024.</div>
