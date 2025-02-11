@@ -1,21 +1,15 @@
+$(document).ready(function(){
 // About Me content is the one by default shown
 $('#talkContent').hide();
 $('#publicationsContent').hide();
-$('#experienceContent').hide();
-$('#conferencesContent').hide();
-$('#projectsContent').hide();
-$('#tutorialsContent').hide();
 $('#teachingContent').hide();
 $('#activitiesContent').hide();
-/* Template
-$('#nameContent').hide();
-*/
 $('#theme').hide();
 $('#lan').hide();
 
-$(document).ready(function(){
 
-	$.getJSON("https://api.countapi.xyz/hit/publish.uwo.ca/~cmukher/visits", function(response) {
+
+	$.getJSON("https://api.countapi.xyz/hit/csd.uwo.ca/~cmukher/visits", function(response) {
 		$("#visits").text("0");
 	});
 
@@ -77,7 +71,7 @@ $(document).ready(function(){
 
 // Handle 'Publications' content
 $('#publications').click(function(e) {
-
+$('#publicationsContent').show();
 	// If the div has already the class active, no need to reload the divs...
 	if(!$(e.target).hasClass('active')) {
 		// Update navbar
@@ -109,23 +103,6 @@ $('#publications').click(function(e) {
 		}
 	});
 
-
-	// // Handle 'Blog' content
-	// $('#tutorials').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#tutorialsContent');
-	// 	}
-	// });
 
 	// Handle 'Teaching' content
 	$('#teaching').click(function(e) {
@@ -162,77 +139,7 @@ $('#publications').click(function(e) {
 	});
 
 
-	// Handle 'Conferences' content
-	// $('#conferences').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#conferencesContent');
-	// 	}
-	// });
-
-	// Handle 'Experience' content
-	// $('#experience').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#experienceContent');
-	// 	}
-	// });
-
-	// Handle 'Projects' content
-	// $('#projects').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#projectsContent');
-	// 	}
-	// });
-
-	/*
-	// Handle 'Template' content
-	$('#name').click(function(e) {
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
-
-			// Hide other contents
-			clearActiveDivs();
-
-			// Show current content
-			activateDiv('#nameContent');
-		}
-	});
-	*/
-
-	// Whenever you clic on a blog post, you should be redirected to that post' html
+	// Whenever you click on a blog post, you should be redirected to that post' html
 	$('.clickable').click(function(e) {
 		window.open($(e.currentTarget)[0].childNodes[1].innerText, '_blank').focus();
 	});
@@ -361,7 +268,7 @@ function scrollToContent(divId) {
 }
 
 function resetViews() {
-	$.getJSON("https://api.countapi.xyz/set/publish.uwo.ca/~cmukher/visits", function(response) {
+	$.getJSON("https://api.countapi.xyz/set/csd.uwo.ca/~cmukher/visits", function(response) {
 		$("#visits").text("0");
 	});
 }
